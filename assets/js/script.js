@@ -1,33 +1,10 @@
-/*
-GIVEN I need a new, secure password
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria - DONE
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password - DONE
-WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters - DONE
-WHEN asked for character types to include in the password
-THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters - DONE
-WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected - DONE
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria - DONE
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page - DONE
-
-Application user experience is intuitive and easy to navigate.
-Application user interface style is clean and polished.
-Application resembles the mock-up functionality provided in the Challenge instructions.
-*/
-
-// Assignment Code
-const upperPool = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const lowerPool = "abcdefghijklmnopqrstuvwxyz";
-const numPool = "1234567890";
-const symbPool = "~!@#$%^&*?/.";
+// [Starting ASCII, Range]
+const upperPool = [65, 26];
+const lowerPool = [97, 26];
+const numPool = [48, 10];
+const symbPool = [33, 15];
 
 let generateBtn = document.querySelector("#generate");
-
 
 let generatePassword = function (len, pool, upper, lower, num, symb){
   let password;
@@ -53,7 +30,10 @@ let generatePassword = function (len, pool, upper, lower, num, symb){
         containsSymb = true;
       }
 
-      password = password + currentPool.charAt(Math.floor(Math.random() * currentPool.length)); // Choose a random character from the current pool and add it to the password
+      randomChar = String.fromCharCode(Math.floor(Math.random() * currentPool[1]) + currentPool[0])
+      password = password + randomChar;
+
+      //password = password + currentPool.charAt(Math.floor(Math.random() * currentPool.length)); // Choose a random character from the current pool and add it to the password
     }
 
     if ((containsNum || !num) && // Checks if the password contains a number, or if a number is not required
@@ -79,7 +59,13 @@ function writePassword() {
 
   // Ask the prompts here for the various inputs
   while (true){
-    lenInput = prompt("How long would you like your password to be? (8 - 128)") * 1; // Convert the prompt to a number
+    lenInput = prompt("How long would you like your password to be? (8 - 128)", 8); // Convert the prompt to a number
+
+    if (lenInput === null){
+      return;
+    }
+
+    lenInput = lenInput * 1;
 
     if (!isNaN(lenInput) && lenInput >=8 && lenInput <= 128){
       break;
@@ -120,7 +106,6 @@ function writePassword() {
   let passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button

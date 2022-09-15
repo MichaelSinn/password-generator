@@ -21,44 +21,39 @@ Application resembles the mock-up functionality provided in the Challenge instru
 */
 
 // Assignment Code
+const upperPool = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const lowerPool = "abcdefghijklmnopqrstuvwxyz";
+const numPool = "1234567890";
+const symbPool = "~!@#$%^&*?/.";
+
 let generateBtn = document.querySelector("#generate");
 
 
-let generatePassword = function (len, upper, lower, num, symb){
+let generatePassword = function (len, pool, upper, lower, num, symb){
   let password = "ERROR";
-  let upperPool = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  let lowerPool = "abcdefghijklmnopqrstuvwxyz";
-  let numPool = "1234567890";
-  let symbPool = "~!@#$%^&*?/.";
-
-  let pool = [upperPool, lowerPool, numPool, symbPool];
 
   while (true && len >= 4){
     password = "";
+
     let containsNum = false;
     let containsUpper = false;
     let containsLower = false;
     let containsSymb = false;
-    for (let i = 0; i < len; i++){
-      let poolIndex = Math.floor(Math.random()*pool.length);
-      let currentPool = pool[poolIndex];
 
-      switch (poolIndex){
-        case 0:
-          containsUpper = true;
-          break;
-        case 1:
-          containsLower = true;
-          break;
-        case 2:
-          containsNum = true;
-          break;
-        case 3:
-          containsSymb = true;
-          break;
+    for (let i = 0; i < len; i++){
+      let currentPool = pool[Math.floor(Math.random()*pool.length)]; // Select a random pool from the list of pools
+
+      if (currentPool === upperPool){
+        containsUpper = true;
+      }else if (currentPool === lowerPool){
+        containsLower = true;
+      }else if (currentPool === numPool){
+        containsNum = true;
+      }else if (currentPool === symbPool){
+        containsSymb = true;
       }
 
-      password = password + currentPool.charAt(Math.floor(Math.random() * currentPool.length));
+      password = password + currentPool.charAt(Math.floor(Math.random() * currentPool.length)); // Choose a random character from the current pool and add it to the password
     }
 
     if ((containsNum || !num) && 
@@ -75,16 +70,33 @@ let generatePassword = function (len, upper, lower, num, symb){
 // Write password to the #password input
 function writePassword() {
 
-  // Ask the prompts here for the various inputs 
+  let upperInput = false;
+  let lowerInput = false;
+  let numInput = false;
+  let symbInput = false;
+  let poolInput = [];
 
-  // Currently default values for testing
-  let lenInput = 8;
-  let upperInput = true;
-  let lowerInput = true;
-  let numInput = true;
-  let symbInput = true;
+  // Ask the prompts here for the various inputs
+  let lenInput = prompt("How long would you like your password to be? (8 - 128)") * 1;
 
-  let password = generatePassword(lenInput, upperInput, lowerInput, numInput, symbInput);
+  if(confirm("Would you like upper case letters in your password?")){
+    upperInput = true;
+    poolInput.push(upperPool);
+  }
+  if(confirm("Would you like lower case letters in your password?")){
+    lowerInput = true;
+    poolInput.push(lowerPool);
+  }
+  if(confirm("Would you like numbers in your password?")){
+    numInput = true;
+    poolInput.push(numPool);
+  }
+  if(confirm("Would you like symbols in your password?")){
+    symbInput = true;
+    poolInput.push(symbPool);
+  }
+
+  let password = generatePassword(lenInput, poolInput, upperInput, lowerInput, numInput, symbInput);
   let passwordText = document.querySelector("#password");
 
   passwordText.value = password;

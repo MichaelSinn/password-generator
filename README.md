@@ -1,100 +1,52 @@
-# 03 JavaScript: Password Generator
+# Password Generator
 
-## Your Task
+## Description
 
-This week's Challenge requires you to modify starter code to create an application that enables employees to generate random passwords based on criteria that they’ve selected. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean and polished, responsive user interface that adapts to multiple screen sizes.
+This password generator will allow employees with access to secure data to generate random passwords based on a set of criteria determined by the user.
+This will help to improve security of the network.
 
-The password can include special characters. If you’re unfamiliar with these, see this [list of password special characters](https://www.owasp.org/index.php/Password_special_characters) from the OWASP Foundation.
+## Installation
 
-## User Story
+No installation required. Navigate to https://michaelsinn.github.io/password-generator/ to use the site.
 
-```
-AS AN employee with access to sensitive data
-I WANT to randomly generate a password that meets certain criteria
-SO THAT I can create a strong password that provides greater security
-```
+## Usage
 
-## Acceptance Criteria
+Navigate to https://michaelsinn.github.io/password-generator/.
 
-```
-GIVEN I need a new, secure password
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password
-WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters
-WHEN asked for character types to include in the password
-THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page
-```
+![alt text](assets/images/03-javascript-homework-demo.png)
 
-## Mock-Up
+After selecting the 'Generate Password' button, you will be presented with a series of prompts. The first prompt, asking for length, must be given an input of an integer number between 8 and 128. Press 'Ok' to submit the prompt, and 'Cancel' to exit the generation. This is the only prompt where you can exit the generation until you are finished.
 
-The following image shows the web application's appearance and functionality:
+The next prompts will be asking for what types of character you would like included in your password. Press 'Ok' if you would like that character in your password, or 'Cancel' if you would not like that character in your password.
 
-![The Password Generator application displays a red button to "Generate Password".](./assets/images/03-javascript-homework-demo.png)
+You MUST select at least one type of character for the password to be generated.
 
-## Grading Requirements
+## Credits
 
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
+JavaScript - Michael Sinn - https://github.com/MichaelSinn
 
-This Challenge is graded based on the following criteria: 
+HTML, CSS and starter JavaScript - UofT Coding Bootcamp - https://github.com/coding-boot-camp
 
-### Technical Acceptance Criteria: 40%
+## License
 
-* Satisfies all of the preceding acceptance criteria.
+MIT License
 
-### Deployment: 32%
+Copyright (c) 2022 Michael Sinn
 
-* Application deployed at live URL.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-* Application loads with no errors.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-* Application GitHub URL submitted.
-
-* GitHub repository that contains application code.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the Challenge instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
-
-- - -
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

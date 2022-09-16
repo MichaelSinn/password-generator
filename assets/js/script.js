@@ -73,9 +73,12 @@ function writePassword() {
     if (lenInput === null) return; // Exits if you press cancel
 
     lenInput = lenInput * 1; // Attempts to cast the lenInput to a number
-    if (!isNaN(lenInput) && lenInput >=8 && lenInput <= 128) break;
+    if (!isNaN(lenInput) && // Checks if the input is a number
+    lenInput >=8 && // Checks if the input is 8 or great
+    lenInput <= 128 &&  // Checks if the input is 128 or less
+    (lenInput % Math.floor(lenInput) === 0)) break; // Checks that the input is an integer, and breaks the loop if all requirements are true
 
-    alert("Length must a number between 8 and 128."); // Tell the user why they cannot continue
+    alert("Error: Length must an integer number between 8 and 128."); // Tell the user why they cannot continue
   }
   
   while (true){ // Loop until at least one type of character has been chosen
@@ -93,7 +96,7 @@ function writePassword() {
 
     if (numInput || symbInput || lowerInput || upperInput) break; // If at least one character type has been selected, break the loop
 
-    alert("You must choose at least one type of character to include in your password."); // Tell the user why they cannot continue
+    alert("Error: You must choose at least one type of character to include in your password."); // Tell the user why they cannot continue
   }
 
   let password = generatePassword(lenInput, poolInput, upperInput, lowerInput, numInput, symbInput); // Store the generated password in 'password'

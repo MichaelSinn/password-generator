@@ -1,9 +1,3 @@
-/*
-TODO:
-  - ReadME
-  - Check requirements again
-*/
-
 // [Starting ASCII value, Range]
 const upperPool = [65, 26];
 const lowerPool = [97, 26];
@@ -46,8 +40,8 @@ let generatePassword = function (len, pool, upper, lower, num, symb){
       password = password + String.fromCharCode(Math.floor(Math.random() * currentPool[1]) + currentPool[0]); // Choose a random character from the current pool and add it to the password
     }
     // Checks if the password contains a certain type of character, or if that character is not required
-    if ((containsNum || !num) && 
-      (containsLower || !lower) && 
+    if ((containsNum || !num) &&
+      (containsLower || !lower) &&
       (containsUpper || !upper) &&
       (containsSymb || !symb)){
         return password; // Exit the while loop and return the password if it contains all the required characters
@@ -67,8 +61,7 @@ function writePassword() {
   // Stores a list of pools that will be used in the password generation
   let poolInput = [];
 
-  // Ask the prompts here for the various inputs
-  while (true){
+  while (true){ // Loop until either user cancels or you receive a valid input
     lenInput = prompt("How long would you like your password to be? (8 - 128)", 8); // Convert the prompt to a number
     if (lenInput === null) return; // Exits if you press cancel
 
